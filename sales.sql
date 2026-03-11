@@ -32,9 +32,9 @@ The data intentionally contains:
 ============================================================
 */
 
-------------------------------------------------------------
+
 -- STEP 1: CREATE DATABASE
-------------------------------------------------------------
+
 
 CREATE DATABASE sql_practice_messy;
 
@@ -42,17 +42,17 @@ CREATE DATABASE sql_practice_messy;
 -- (Run separately if using pgAdmin)
 -- \c sql_practice_messy;
 
-------------------------------------------------------------
+
 -- STEP 2: CREATE SCHEMA
-------------------------------------------------------------
+
 
 CREATE SCHEMA practice;
 
 SET search_path TO practice;
 
-------------------------------------------------------------
+
 -- STEP 3: CUSTOMERS TABLE
-------------------------------------------------------------
+
 
 CREATE TABLE customers (
     customer_id SERIAL PRIMARY KEY,
@@ -64,9 +64,9 @@ CREATE TABLE customers (
     signup_date DATE
 );
 
-------------------------------------------------------------
+
 -- STEP 4: INSERT MESSY CUSTOMER DATA
-------------------------------------------------------------
+
 
 INSERT INTO customers (first_name,last_name,email,phone,city,signup_date) VALUES
 ('John','Doe','john.doe@email.com','0712345678','New York','2022-01-10'),
@@ -83,9 +83,9 @@ INSERT INTO customers (first_name,last_name,email,phone,city,signup_date) VALUES
 ('Chris','Martin','cmartin@email.com','0701234567','Boston','2021-07-07'),
 ('Chris','Martin','cmartin@email.com','0701234567','Boston','2021-07-07'); -- duplicate
 
-------------------------------------------------------------
+
 -- STEP 5: PRODUCTS TABLE
-------------------------------------------------------------
+
 
 CREATE TABLE products (
     product_id SERIAL PRIMARY KEY,
@@ -95,9 +95,9 @@ CREATE TABLE products (
     created_at DATE
 );
 
-------------------------------------------------------------
+
 -- INSERT MESSY PRODUCTS
-------------------------------------------------------------
+
 
 INSERT INTO products (product_name,category,price,created_at) VALUES
 ('Laptop','Electronics',1200,'2022-01-01'),
@@ -112,9 +112,9 @@ INSERT INTO products (product_name,category,price,created_at) VALUES
 ('Mouse','Electronics',30,'2022-07-02'),
 ('Mouse ','Electronics',30,'2022-07-02'); -- trailing space
 
-------------------------------------------------------------
+
 -- STEP 6: ORDERS TABLE
-------------------------------------------------------------
+
 
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
@@ -124,9 +124,9 @@ CREATE TABLE orders (
     total_amount NUMERIC(10,2)
 );
 
-------------------------------------------------------------
+
 -- INSERT MESSY ORDERS
-------------------------------------------------------------
+
 
 INSERT INTO orders (customer_id,order_date,order_status,total_amount) VALUES
 (1,'2023-01-01','Completed',1500),
@@ -142,9 +142,9 @@ INSERT INTO orders (customer_id,order_date,order_status,total_amount) VALUES
 (11,'2023-01-11','Completed',NULL),
 (12,'2023-01-12','completed',300);
 
-------------------------------------------------------------
+
 -- STEP 7: ORDER ITEMS
-------------------------------------------------------------
+
 
 CREATE TABLE order_items (
     item_id SERIAL PRIMARY KEY,
@@ -154,9 +154,9 @@ CREATE TABLE order_items (
     unit_price NUMERIC(10,2)
 );
 
-------------------------------------------------------------
+
 -- INSERT MESSY ORDER ITEMS
-------------------------------------------------------------
+
 
 INSERT INTO order_items (order_id,product_id,quantity,unit_price) VALUES
 (1,1,1,1200),
@@ -174,9 +174,9 @@ INSERT INTO order_items (order_id,product_id,quantity,unit_price) VALUES
 (11,5,1,150),
 (12,6,1,300);
 
-------------------------------------------------------------
+
 -- STEP 8: EMPLOYEES TABLE
-------------------------------------------------------------
+
 
 CREATE TABLE employees (
     employee_id SERIAL PRIMARY KEY,
@@ -187,9 +187,9 @@ CREATE TABLE employees (
     hire_date DATE
 );
 
-------------------------------------------------------------
+
 -- INSERT MESSY EMPLOYEE DATA
-------------------------------------------------------------
+
 
 INSERT INTO employees (first_name,last_name,department,salary,hire_date) VALUES
 ('Alice','Walker','Sales',60000,'2019-01-01'),
@@ -203,6 +203,5 @@ INSERT INTO employees (first_name,last_name,department,salary,hire_date) VALUES
 ('Isabella','Adams','Marketing',70000,'2023-01-10'),
 ('Jack','Baker','marketing',70000,'2023-01-10'); -- casing
 
-------------------------------------------------------------
+
 -- END OF SCRIPT
-------------------------------------------------------------
