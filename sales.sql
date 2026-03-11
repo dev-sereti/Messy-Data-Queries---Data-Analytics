@@ -64,7 +64,6 @@ CREATE TABLE customers (
     signup_date DATE
 );
 
-
 -- STEP 4: INSERT MESSY CUSTOMER DATA
 
 
