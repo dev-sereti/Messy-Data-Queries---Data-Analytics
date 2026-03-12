@@ -59,3 +59,10 @@ update customers c
 set 
 first_name = initcap(c.first_name ),
 last_name = initcap(c.last_name );
+
+update customers c 
+set email = LOWER(email);
+
+UPDATE customers c 
+SET email = lower(first_name || '.' || last_name || '@email.com')
+WHERE email IS DISTINCT FROM lower(first_name || '.' || last_name || '@email.com');
